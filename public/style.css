@@ -1,0 +1,224 @@
+/* Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+body {
+  background-color: #121212;
+}
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fullscreen Layout */
+/* .video-container {
+  position: relative;
+  width: 70vw;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Big Remote Video */
+/* #remoteVideo {
+  width: 90%;
+  height: 80%;
+  object-fit: cover; 
+  border-radius: 0;
+} */
+
+/* Small Local Video (PiP Style) */
+/* #myVideo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid white;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+} */
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  padding: 10px 0;
+}
+
+body {
+  background-color: #121212;
+  overflow: hidden; /* Prevents overflow outside the viewport */
+  padding: 0 50px;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh; /* Full viewport height */
+}
+
+/* 🔹 Video Container */
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔹 Big Remote Video */
+#remoteVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Make the remote video fill the container */
+  height: 100%; /* Make the remote video fill the container */
+  object-fit: cover; /* Ensures the video covers the entire area */
+  border-radius: 10px;
+}
+
+/* 🔹 Small Local Video (PiP Style) */
+#myVideo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid white;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  z-index: 20;
+}
+
+/* Button Styling */
+button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding around text */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Font size */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin: 10px 0; /* Space between buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10; /* Ensure buttons stay on top of video */
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #45a049; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* Active effect when button is clicked */
+button:active {
+  transform: scale(0.98); /* Slightly shrink button */
+}
+
+/* Disabled button */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+
+/* 📱 Small screens (mobile) */
+@media (max-width: 768px) {
+  .video-container {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #remoteVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fullscreen effect */
+  }
+
+  #myVideo {
+    width: 90px;
+    height: 60px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Style for buttons in small screens */
+  button {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+}
+
+/* 💻 Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .video-container {
+    width: 100vw;
+    height: 90vh;
+  }
+
+  #remoteVideo {
+    width: 100%; /* Reduced size for medium screens */
+    height: 100%; /* Reduced size */
+  }
+
+  #myVideo {
+    width: 120px;
+    height: 80px;
+  }
+
+  /* Style for buttons on medium screens */
+  button {
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+}
+
+/* 🖥 Large screens (desktops) */
+@media (min-width: 1280px) {
+  .video-container {
+    width: 70vw;
+    height: 90vh;
+  }
+
+  #remoteVideo {
+    width: 100%; /* Remote video takes the full container width */
+    height: 100%; /* Remote video takes the full container height */
+  }
+
+  #myVideo {
+    width: 150px;
+    height: 100px;
+  }
+
+  /* Style for buttons on large screens */
+  button {
+    font-size: 16px;
+    padding: 15px 32px;
+  }
+}

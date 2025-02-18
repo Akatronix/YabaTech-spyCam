@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>welcome</h1>
-    <!-- <button id="startRecording">Start Recording</button>
-    <button id="stopRecording">Stop Recording</button> -->
+    <div class="Myheader">
+      <img src="./logo.jpg" alt="logo" />
+      <p>Berryyctcamspy</p>
+    </div>
 
     <div class="home">
       <div class="video-container">
         <video id="myVideo" autoplay playsinline muted></video>
         <video id="remoteVideo" autoplay playsinline></video>
+        <div id="videoUnavailable" style="display: none">
+          Video is not available
+        </div>
       </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>

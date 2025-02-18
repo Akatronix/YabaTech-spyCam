@@ -154,7 +154,7 @@ let myStream;
 let peer = null; // Ensure peer is properly managed
 const myVideo = document.getElementById("myVideo");
 const remoteVideo = document.getElementById("remoteVideo");
-const videoUnavailableDiv = document.getElementById("videoUnavailable"); // The div to show if no video
+const videoUnavailableDiv = document.getElementById("videoUnavailable");
 
 // Function to show/hide the fallback div
 function toggleVideoFallback(show) {
@@ -216,13 +216,19 @@ navigator.mediaDevices
         peer.on("error", (err) => console.error("Peer Error:", err));
       }
 
-      peer.signal(signal); // Ensure signal is processed once
+      try {
+        if (!peer.destroyed) {
+          peer.signal(signal); // Apply signal only when peer is valid
+        }
+      } catch (err) {
+        console.error("Error processing offer:", err);
+      }
     });
 
     socket.on("answerReceived", (signal) => {
       console.log("Answer received, completing connection");
 
-      if (peer) {
+      if (peer && !peer.destroyed) {
         try {
           peer.signal(signal);
         } catch (err) {
@@ -238,4 +244,3 @@ navigator.mediaDevices
     console.error("Error accessing media devices:", error);
     toggleVideoFallback(true);
   });
-
